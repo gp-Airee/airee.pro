@@ -1,0 +1,53 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"> 
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+        }
+        .container {
+            font-family: 'Roboto', sans-serif;
+            font-size: 5em;
+            color: rgb(148, 0, 148);
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <center>
+        <img src="https://f000.backblazeb2.com/file/grahams-public/686e81fb/4rect.png" style="max-width:160px;margin-bottom:5px;"/>
+        <p id="countdown"></p>
+        <div style="font-size:0.3em;font-style:italic">(you will be sent to the stream when the countdown ends)</div>
+    </center>
+    </div>
+</body>
+
+<script>
+document.getElementById("countdown").innerHTML = "Loading...";
+var countDownDate = new Date("Sep 12, 2021 23:00:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "Starting!<meta http-equiv=\"refresh\" content=\"5; URL='https://twitch.tv/AireeCh'\" />";
+  }
+}, 1000);
+</script>
